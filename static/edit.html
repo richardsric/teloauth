@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ItradeCoin:::Edit Trade Profile::::</title>
+	<!-- Meta tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="itradecoin, btc trading, trading, trade, btc, eth, bch,bcc,bittrex,poloniex." />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- Meta tags -->
+	<!--stylesheets-->
+<link href="static/css/style.css" rel='stylesheet' type='text/css' media="all">
+<!--//style sheet end here-->
+<!-- Calendar -->
+<!-- <link rel="stylesheet" href="css/jquery-ui.css" /> -->
+<!-- //Calendar -->
+
+
+</head>
+<body>
+     <h1 class="header-w3ls">
+Trade Profile Edit</h1>
+<div class="appointment-w3">
+    <form action="#" method="post">
+
+<div class="personal">
+<h2>{{.Title}}</h2>
+
+			<div class="form-left-w3l">	
+			<p>Trade Profile</p>
+			<input type="text" name="tradeProfile" placeholder="Trade-Profile-Name" required="" value="{{.TradeProfile.TradeProfile }}">
+			</div>
+			<div class="form-right-w3ls">
+			<p>Trade Type</p>
+			<select name="tradeType" class="form-control buttom" required="">
+			<option value="">Please select</option>
+			{{range $key, $val := .TradeTypesData}}
+			<option value="{{$key}}">{{$val}}</option>
+			{{else}}
+		   <option value="">No Record Found</option>
+		  {{end}}
+			</select>
+			</div>
+			<div class="clear"></div>
+
+			<div class="form-left-w3l">
+			<p>Trade Mode</p>
+			<select name="tradeMode" class="form-control buttom" required="">
+				<option value="{{ .TradeProfile.TradeMode }}">{{ .TradeProfile.TradeMode }}</option>
+				<option value="SIMULATION">SIMULATION</option>
+				<option value="LIVE">LIVE</option>
+				</select>
+			</div>
+			<div class="form-right-w3ls ">	
+			<p>Trade Commission(%)</p>
+			<input class="buttom" type="number" name="tradeCommission" placeholder="Trade-Commission" required="" value="{{ .TradeProfile.TradeCommission }}">
+			</div>
+			<div class="clear"></div>
+					
+
+			<div class="form-left-w3l">	
+				<p>Profile Privacy</p>
+				<select name="profilePrivacy" class="form-control buttom" required= "">
+					<option value="">Please select</option>
+					<option value="1">Private</option>
+					<option value="2">Public</option>
+					</select>
+				</div>
+				<div class="form-right-w3ls">
+				<p>Exchange</p>
+				<select name="exchange" class="form-control buttom" required="">
+				<option value="">Please select</option>
+				{{range $key, $val := .ExchangeData}}
+				<option value="{{$key}}">{{$val}}</option>
+				{{else}}
+			   <option value="">No Exchange Record</option>
+			  {{end}}
+				</select>
+				</div>
+				<div class="clear"></div>
+
+			<div class="form-left-w3l">
+			<p>Base Market</p>
+			<select name="baseMarket" class="form-control buttom" required ="">
+				<option value="{{ .TradeProfile.BaseMarket }}">{{ .TradeProfile.BaseMarket }}</option>
+				{{range $key, $val := .BaseMarketData}}
+				<option value="{{$key}}">{{$val}}</option>
+				{{else}}
+			   <option value="">No Market Record</option>
+			  {{end}}
+				</select>
+			</div>
+			<div class="form-right-w3ls ">	
+			<p>Wallet Exposure(%)</p>
+			<input class="buttom" type="number" name="walletExposure" placeholder="Wallet Exposure" required="" value="{{ .TradeProfile.WalletExposure }}">
+			</div>
+			<div class="clear"></div>
+
+			<div class="form-left-w3l">
+			<p>Min Cap</p>
+			<input type="number"  name="minCap" placeholder="Min-Cap" required="" value="{{ .TradeProfile.MinCap }}" step="any">
+			</div>
+			<div class="form-right-w3ls ">	
+			<p>Max Cap</p>
+			<input class="buttom" type="number" name="maxCap" placeholder="Max-Cap" required="" value="{{ .TradeProfile.MaxCap }}" step="any">
+			</div>
+			<div class="clear"></div>
+			</div>
+
+			<div class="information">
+ 			<h3>Profit Settings</h3>
+
+		   	<div class="form-left-w3l">
+			<p>Profit Lock Start(%)</p>
+			<input type="number" name="profitLockStart" placeholder="Profit-Lock-Start" required="" value="{{ .TradeProfile.ProfitLockStart }}">
+			</div>
+            <div class="form-right-w3ls ">	
+			<p>Profit Keep(%)</p>
+			<input type="number" name="profitKeep" placeholder="Profit-Keep" required="" value="{{ .TradeProfile.ProfitKeep }}">
+		    </div>
+			<div class="clear"></div>
+			
+			<div class="form-left-w3l">
+			<p>Profit Keep Readjust PL(%)</p>
+			<input type="number" name="profitKeepReadJstPL" placeholder="Profit-Keep-Readjust-Pl" required="" value="{{ .TradeProfile.ProfitKeepReadjustPl }}">
+			</div>
+            <div class="form-right-w3ls ">	
+			<p>Profit Keep Readjust(%)</p>
+			<input type="number" name="profitKeepReadjust" placeholder="Profit-Keep-Readjust" required="" value="{{ .TradeProfile.ProfitKeepReadjust }}">
+		    </div>
+		    <div class="clear"></div>
+
+
+		<div class="education">	
+		<h3>Buy Settings</h3>
+		
+		<div class="form-left-w3l">
+		<p>Buy Order Timeout(Seconds)</p>
+		<input type="number" name="buyOrderTimeout" placeholder="Buy-Order-Timeout" required="" value="{{ .TradeProfile.BuyOrderTimeout }}">
+		</div>
+        <div class="form-right-w3ls ">	
+		<p>Partialbuy Timeout(Seconds)</p>
+		<input type="number" name="partialBuyTimeout" placeholder="Partialbuy-Timeout" required="" value="{{ .TradeProfile.PartialBuyTimeout }}">
+		</div>
+		<div class="clear"></div>
+		
+		<div class="form-add-w3ls">	
+		<p>Partialbuy Timeout PL(Seconds)</p>
+		<input type="number" name="partialBuyTimeoutPl" placeholder="Partialbuy-Timeout-Pl" required="" value="{{ .TradeProfile.PartialBuyTimeoutPl }}">
+		</div>
+		 
+		 </div>
+
+		 <div class="education">	
+			<h3>Sell Settings</h3>
+			
+			<div class="form-left-w3l">
+			<p>Sell Trigger(%)</p>
+			<input type="number" name="sellTrigger" placeholder="Sell-Trigger" required="" value="{{ .TradeProfile.SellTrigger }}">
+			</div>
+			<div class="form-right-w3ls ">	
+			<p>Sell Order Timeout(Seconds)</p>
+			<input type="number" name="sellOrderTimeout" placeholder="Sell-Order-Timeout" required="" value="{{ .TradeProfile.SellOrderTimeout }}">
+			</div>
+			<div class="clear"></div>
+			
+			<div class="form-add-w3ls">	
+			<p>Sell Trigger Readjust(%)</p>
+			<input type="number" name="sellTriggerReadjust" placeholder="Sell-Trigger-Readjust" required="" value="{{ .TradeProfile.SellTriggerReadjust }}">
+			</div>
+			 
+			 </div>
+
+			 <div class="education">	
+			<h3>Other Settings</h3>
+				
+			<div class="form-left-w3l">
+			<p>Stop Loss(%)</p>
+			<input type="number" name="stopLoss" placeholder="Stop-Loss" required="" value="{{ .TradeProfile.StopLoss }}">
+			</div>
+			<div class="form-right-w3ls ">	
+			<p>Inherit Subscribers From</p>
+			<select name="inheritSubscribersFrom" class="form-control buttom" required="">
+				<option value="">Please select</option>
+				{{range $key, $val := .SubscriberTp}}
+				<option value="{{$key}}">{{$val}}</option>
+				{{else}}
+			   <option value="">No Record Found</option>
+			  {{end}}
+				</select>
+			</div>
+			<div class="clear"></div>
+				 
+			</div>
+		 
+			<input type="hidden" name="code" value="{{ .TradeProfile.Code }}">
+			<input type="hidden" name="tpOwnerID" value="{{ .TradeProfile.TpOwnerID }}">
+
+
+ 		 <input type="submit" name="action" value="SAVE" title="Using SAVE....You Will Be Able To Edit The Record again Using This Link">
+		 <input type="submit" name="action" value="COMMIT" title="Using COMMIT....You Will Not Be Able To Edit The Record again Using This Link">
+		</form>
+   		</div>
+   
+    	<div class="copy">
+    	<p>&copy;2017 itradeCoin. All Rights Reserved</p>
+		</div>
+		</body>
+		</html>

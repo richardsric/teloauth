@@ -1,0 +1,13 @@
+authtoken: 3Fu7MKuM19Mjh2hBLtf9b_5EMYXkrfryM3izrwMZzKR
+json_resolver_url: ""
+dns_resolver_ips: []
+compress_conn: true
+region: us
+web_addr: localhost:4040
+console_ui: iftty
+tunnels:
+  itradecoin:
+    addr: 4000
+    inspect: false
+    proto: http
+    hostname: securedata.itradecoin.io
